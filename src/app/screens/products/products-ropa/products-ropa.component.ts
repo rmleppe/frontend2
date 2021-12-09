@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators,FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-products-ropa',
@@ -36,8 +36,10 @@ export class ProductsRopaComponent implements OnInit {
   }
   userForm: FormGroup
   listData:any;
+  filterLista = '';
   constructor(private fb:FormBuilder  ){
-
+    
+    
     this.listData = [];
 
   this.userForm = this.fb.group({
@@ -47,10 +49,17 @@ export class ProductsRopaComponent implements OnInit {
     imagen: new FormControl('', [])
   })
 }
+
+
+
+
+
+
 addItem(){
   if(this.userForm.valid){
     this.listData.push(this.userForm.value);
     this.userForm.reset();
+    alert("Producto ingresado")
     
     
   }else{
@@ -67,13 +76,28 @@ reset(){
 removeItems(element:any){
   this.listData.forEach((value:any,dex:any) => {
     if(value == element){
+      
       this.listData.splice(dex,1)
+      alert("Producto eliminado")
     }
 
   });
-
-
 }
+//FUNCION PARA MPSTRAR IMAGEN EN CARD
+url: any= '';
+
+readUrl(event:any) {
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = (event:any) => {
+      this.url = (<FileReader>event.target).result;
+    }
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
+}
+
 
 
 }

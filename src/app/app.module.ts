@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,8 @@ import { ProductsRopaComponent } from './screens/products/products-ropa/products
 import { ProductsZapateriaComponent } from './screens/products/products-zapateria/products-zapateria.component';
 import { RegisterComponent } from './screens/register/register.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FilterPipe } from './filter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ProductsZapateriaComponent,
     RegisterComponent,
     FooterComponent,
+    FilterPipe,
     
   ],
   imports: [
@@ -31,7 +34,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
