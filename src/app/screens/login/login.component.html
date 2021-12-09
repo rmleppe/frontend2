@@ -11,7 +11,7 @@
               </div>
               
               <section class="section">
-              <form > <!--Aqui va el form-->
+              <form [formGroup]="userForm"> <!--Aqui va el form-->
 
               <!--Comienzo del email-->
                 <div class="field"> 
@@ -28,28 +28,32 @@
                     </span>
                     
                   </div>
-                
-                 
-                </div>
+               </div>
+               <div *ngIf="this.userForm.controls['email'].errors?.['email']" style="color: red;">
+                Debe colocar Email valido
+              </div><br>
+               <div *ngIf="this.userForm.controls['email'].errors?.['required']" style="color: red; font-style: italic;">
+                Debe completar email
+              </div>
+              <br>
                 <!--Comienzo de contraseña-->
                 <div class="field">
                   <p class="control has-icons-left">
-                    <input
-                    class="input"
-                    type="password"
-                    placeholder="Contraseña"
-                    formControlName="password">
+                    <input class="input" type="password" placeholder="Contraseña" formControlName="password" required>
                     <span class="icon is-small is-left">
                       <i class="fas fa-lock"></i>
                     </span>
                   </p>
                 </div>
-
+                <div *ngIf="this.userForm.controls['password'].errors?.['required']" style="color: red; font-style: italic;">
+                  Debe completar contraseña
+                </div>
+                
                 <br>
                 <!--Boton de Guardar-->
                 <div class="has-text-centered">
                   
-                    <button class="button is-medium is-rounded is-primary " style="margin-right: 10px;" type="submit" routerLink="/productoropa" >Ingresar</button>
+                    <button class="button is-medium is-rounded is-primary " style="margin-right: 10px;" type="submit" (click)="onClick()" >Ingresar</button>
                  
                  
                     <button class="button is-medium  is-focused is-light" style="margin-left: 10px;" type="reset" routerLink="/register">Registrar</button>

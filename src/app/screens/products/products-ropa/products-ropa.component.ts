@@ -8,34 +8,12 @@ import { FormBuilder, FormControl, FormGroup, Validators,FormsModule} from '@ang
 })
 export class ProductsRopaComponent implements OnInit {
   
-  
-  /*mostrar = "";
-  datos: String = "";
-  productos:any[] = [];
-  
-  
-  
-
-  formProducto = new FormGroup({
-    nombre: new FormControl('',[Validators.required,Validators.minLength(10)]),
-    precio: new FormControl('',[Validators.required,Validators.minLength(2)]),
-    descripcion: new FormControl('', [Validators.required,Validators.maxLength(20)])
-  });
-  // los input del formulario se asocian con un modelo
-  producto:any = {};
-
-  submit(){
-    
-      this.productos.push();
-                 
-      
-    
-  }*/
 
   ngOnInit(): void {
   }
   userForm: FormGroup
   listData:any;
+  
   filterLista = '';
   constructor(private fb:FormBuilder  ){
     

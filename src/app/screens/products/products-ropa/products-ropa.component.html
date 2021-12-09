@@ -73,11 +73,11 @@
     <!--SEGUNDA FILAAAAAAAAAAAAAAAAAA-->
     <div class="col-lg-4" style="text-align: center;" >
       <div class="col-md-8">
-        <input type="search" class="form-control" placeholder="Buscar.." [(ngModel)]="filterLista" name="filterLista"/> 
+        <input type="search" class="form-control" placeholder="Buscar por nombre..." [(ngModel)]="filterLista" name="filterLista"/> 
         <br>
       </div>
            
-            <div class="row" *ngFor = "let item of listData |filter: filterLista">
+            <div class="row" *ngFor = "let item of listData | filter: filterLista">
               <div class="col-md-8">
                 <div class="card">
                   <div class="card-body">
